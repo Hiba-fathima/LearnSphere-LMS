@@ -1,0 +1,254 @@
+.assignments-page {
+  padding: 30px;
+}
+
+.assignments-heading {
+  margin-bottom: 25px;
+}
+
+.assignments-heading span {
+  color: #159baf;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.assignments-heading h1 {
+  color: #173b50;
+  font-size: 28px;
+  margin: 8px 0;
+}
+
+.assignments-heading p {
+  color: #71818c;
+}
+
+.student-assignment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.student-assignment-card {
+  background: white;
+  border: 1px solid #e3edf1;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(20, 70, 90, 0.04);
+}
+
+.assignment-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.assignment-course {
+  color: #159baf;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.assignment-card-header h2 {
+  color: #173b50;
+  margin: 8px 0;
+}
+
+.assignment-section {
+  color: #71818c;
+  font-size: 14px;
+}
+
+.assignment-status {
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.assignment-status.pending {
+  background: #fff3d8;
+  color: #a66b00;
+}
+
+.assignment-status.submitted {
+  background: #e3f3ff;
+  color: #1673aa;
+}
+
+.assignment-status.graded {
+  background: #e1f7e9;
+  color: #168044;
+}
+
+.assignment-description {
+  margin-top: 22px;
+  padding: 16px;
+  background: #f6fafc;
+  border-radius: 8px;
+}
+
+.assignment-description h4,
+.previous-submission h4,
+.assignment-submit-form h4 {
+  color: #173b50;
+  margin: 0 0 10px;
+}
+
+.assignment-description p {
+  color: #667985;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.assignment-information {
+  display: flex;
+  gap: 45px;
+  margin: 20px 0;
+}
+
+.assignment-information div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.assignment-information small {
+  color: #87949c;
+}
+
+.assignment-information strong {
+  color: #173b50;
+  font-size: 14px;
+}
+
+.previous-submission {
+  background: #f0f9f8;
+  border-left: 4px solid #159baf;
+  padding: 16px;
+  margin: 20px 0;
+  border-radius: 6px;
+}
+
+.previous-submission p {
+  color: #536b76;
+  margin: 8px 0;
+  white-space: pre-wrap;
+}
+
+.assignment-result {
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid #d4e8e5;
+  color: #168044;
+}
+
+.assignment-submit-form {
+  margin-top: 22px;
+  border-top: 1px solid #e6eef1;
+  padding-top: 20px;
+}
+
+.assignment-submit-form textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 13px;
+  border: 1px solid #dce6eb;
+  border-radius: 8px;
+  resize: vertical;
+  font-family: inherit;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.assignment-submit-form textarea:focus,
+.assignment-submit-form input:focus {
+  border-color: #159baf;
+}
+
+.assignment-file-label {
+  display: block;
+  color: #526976;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.assignment-submit-form input[type="file"] {
+  display: block;
+  margin-bottom: 15px;
+  max-width: 100%;
+}
+
+.selected-file {
+  color: #159baf;
+  font-size: 13px;
+}
+
+.assignment-submit-form button {
+  background: #159baf;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.assignment-submit-form button:hover {
+  background: #117f91;
+}
+
+.assignment-submit-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.assignment-empty {
+  background: white;
+  padding: 45px 20px;
+  border-radius: 12px;
+  text-align: center;
+  color: #71818c;
+}
+
+.assignment-empty div {
+  font-size: 35px;
+}
+
+.assignment-empty h3 {
+  color: #173b50;
+}
+
+.assignment-error {
+  color: #c0392b;
+}
+
+.assignment-message {
+  background: #e4f7ed;
+  color: #168044;
+  padding: 12px 15px;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 650px) {
+  .assignments-page {
+    padding: 18px;
+  }
+
+  .assignment-card-header {
+    flex-direction: column;
+  }
+
+  .assignment-information {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .student-assignment-card {
+    padding: 17px;
+  }
+}

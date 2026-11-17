@@ -1,0 +1,177 @@
+.student-reminders {
+  width: 100%;
+  margin: 25px 0;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 16px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 15px rgba(30, 50, 80, 0.04);
+}
+
+.reminder-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.reminder-subtitle {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.reminder-heading h2 {
+  margin: 6px 0;
+  font-size: 21px;
+  color: #172554;
+}
+
+.reminder-heading p {
+  margin: 0;
+  color: #8490a3;
+  font-size: 13px;
+}
+
+.reminder-calendar-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eaf2ff;
+  border-radius: 14px;
+  font-size: 25px;
+}
+
+.reminder-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reminder-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 16px;
+  background: #f8faff;
+  border: 1px solid #edf1f8;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.reminder-item:hover {
+  background: #f0f5ff;
+  border-color: #cbdcff;
+  transform: translateY(-2px);
+}
+
+.reminder-type-icon {
+  width: 43px;
+  height: 43px;
+  min-width: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 20px;
+}
+
+.assignment-reminder-icon {
+  background: #fff1e8;
+}
+
+.quiz-reminder-icon {
+  background: #eeeaff;
+}
+
+.reminder-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.reminder-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.reminder-title-row h4 {
+  margin: 0;
+  color: #263653;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.reminder-new-badge {
+  padding: 4px 8px;
+  background: #e0f2fe;
+  color: #0369a1;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.reminder-content p {
+  margin: 7px 0;
+  color: #718096;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.reminder-action {
+  color: #3867d6;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.reminder-empty {
+  text-align: center;
+  padding: 28px 15px;
+  background: #f8faff;
+  border-radius: 12px;
+}
+
+.reminder-empty-icon {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  background: #dcfce7;
+  color: #15803d;
+  border-radius: 50%;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.reminder-empty h3 {
+  margin: 12px 0 6px;
+  color: #263653;
+  font-size: 15px;
+}
+
+.reminder-empty p {
+  margin: 0;
+  color: #8490a3;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .student-reminders {
+    padding: 16px;
+  }
+
+  .reminder-heading h2 {
+    font-size: 18px;
+  }
+
+  .reminder-item {
+    padding: 12px;
+  }
+}

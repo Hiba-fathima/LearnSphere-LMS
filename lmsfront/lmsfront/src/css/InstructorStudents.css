@@ -1,0 +1,99 @@
+.instructor-content {
+  flex: 1;
+  min-height: 100vh;
+  padding: 30px;
+  background: #f5f9fd;
+  font-family: Arial, sans-serif;
+}
+
+.instructor-content h2 {
+  color: #164b72;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.instructor-content > p {
+  color: #718096;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+/* Table card */
+.instructor-table-container {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 12px;
+  border: 1px solid #e3edf7;
+  box-shadow: 0 4px 14px rgba(30, 90, 130, 0.06);
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Table */
+.instructor-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 750px;
+}
+
+.instructor-table thead {
+  background: #eaf5fc;
+}
+
+.instructor-table th {
+  padding: 15px 16px;
+  color: #245779;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid #dceaf5;
+}
+
+.instructor-table td {
+  padding: 16px;
+  color: #475569;
+  font-size: 14px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.instructor-table tbody tr:hover {
+  background: #f4faff;
+}
+
+.instructor-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.instructor-table td:nth-child(2) {
+  color: #164b72;
+  font-weight: 600;
+}
+
+/* Payment status */
+.paid-status {
+  display: inline-block;
+  padding: 6px 13px;
+  border-radius: 20px;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .instructor-content {
+    padding: 20px 15px;
+  }
+
+  .instructor-content h2 {
+    font-size: 23px;
+  }
+
+  .instructor-table-container {
+    padding: 14px;
+  }
+}

@@ -1,0 +1,147 @@
+.students-page {
+  padding: 30px;
+  min-height: 100vh;
+  background: #f7f9fc;
+}
+
+.students-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.students-header h1,
+.instructors-header h1 {
+  margin: 0 0 8px;
+  color: #172b4d;
+  font-size: 27px;
+}
+
+.students-header p,
+.instructors-header p {
+  margin: 0;
+  color: #7b8798;
+  font-size: 14px;
+}
+
+.students-count,
+.instructors-count {
+  background: #eaf5ff;
+  color: #2476b8;
+  padding: 13px 18px;
+  border-radius: 9px;
+  font-size: 14px;
+}
+
+.students-card {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
+}
+
+.students-toolbar {
+  margin-bottom: 20px;
+}
+
+.students-toolbar input,
+.instructors-toolbar input {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px 15px;
+  border: 1px solid #e0e6ed;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.students-toolbar input:focus,
+.instructors-toolbar input:focus {
+  border-color: #36a4c8;
+}
+
+.students-table-wrapper {
+  overflow-x: auto;
+}
+
+.students-table,
+.instructors-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.students-table th,
+.students-table td,
+.instructors-table th,
+.instructors-table td {
+  padding: 16px 13px;
+  border-bottom: 1px solid #edf0f4;
+  font-size: 13px;
+}
+
+.students-table th,
+.instructors-table th {
+  color: #7b8798;
+  font-weight: 600;
+  background: #fafbfd;
+}
+
+.students-table td,
+.instructors-table td {
+  color: #39465a;
+}
+
+.student-name,
+.instructor-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #26364b;
+}
+
+.student-avatar,
+.instructor-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #e3f4fa;
+  color: #1685a8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+
+.student-role,
+.instructor-role {
+  background: #eef4ff;
+  color: #4775b8;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+.student-status,
+.instructor-status {
+  background: #e6f8ee;
+  color: #219653;
+  padding: 5px 11px;
+  border-radius: 15px;
+  font-size: 11px;
+}
+
+.students-empty,
+.students-message,
+.students-error {
+  text-align: center;
+  padding: 30px !important;
+  color: #7b8798;
+}
+
+.students-error {
+  color: #d04444;
+}

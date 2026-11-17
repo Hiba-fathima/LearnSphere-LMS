@@ -1,0 +1,221 @@
+.admin-sidebar {
+width: 260px;
+height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+display: flex;
+flex-direction: column;
+background: #ffffff;
+border-right: 1px solid #e5edf5;
+padding: 25px 18px 15px;
+box-sizing: border-box;
+overflow-y: auto;
+z-index: 1000;
+font-family: Arial, sans-serif;
+}
+
+/* Brand */
+.admin-sidebar-brand {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 0 8px 30px;
+}
+
+.admin-brand-icon {
+width: 43px;
+height: 43px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 13px;
+background: linear-gradient(135deg, #38bdf8, #2563eb);
+color: #ffffff;
+font-size: 25px;
+font-weight: 700;
+}
+
+.admin-sidebar-brand h2 {
+margin: 0;
+color: #172554;
+font-size: 19px;
+font-weight: 700;
+}
+
+.admin-sidebar-brand p {
+margin: 5px 0 0;
+color: #7c8ba1;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 1.5px;
+}
+
+/* Menu heading */
+.admin-menu-heading {
+margin: 0 10px 13px;
+color: #94a3b8;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 1.2px;
+}
+
+/* Navigation */
+.admin-sidebar-menu {
+display: flex;
+flex-direction: column;
+gap: 7px;
+}
+
+.admin-menu-item {
+display: flex;
+align-items: center;
+gap: 13px;
+padding: 13px 14px;
+border-radius: 10px;
+color: #64748b;
+font-size: 14px;
+font-weight: 500;
+text-decoration: none;
+transition: background 0.2s ease, color 0.2s ease;
+}
+
+.admin-menu-item:hover {
+background: #f0f9ff;
+color: #0284c7;
+}
+
+.admin-menu-item.active {
+background: #e0f2fe;
+color: #0369a1;
+font-weight: 700;
+box-shadow: inset 3px 0 #0ea5e9;
+}
+
+.admin-menu-icon {
+width: 23px;
+text-align: center;
+font-size: 19px;
+}
+
+/* Bottom section */
+.admin-sidebar-bottom {
+margin-top: auto;
+padding-top: 30px;
+}
+
+.admin-help-card {
+padding: 17px;
+margin-bottom: 18px;
+border-radius: 13px;
+background: linear-gradient(135deg, #eff9ff, #e0f2fe);
+}
+
+.admin-help-icon {
+width: 28px;
+height: 28px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+background: #0ea5e9;
+color: white;
+font-weight: 700;
+}
+
+.admin-help-card h4 {
+margin: 12px 0 6px;
+color: #172554;
+font-size: 14px;
+}
+
+.admin-help-card p {
+margin: 0 0 12px;
+color: #64748b;
+font-size: 12px;
+line-height: 1.6;
+}
+
+.admin-help-button {
+width: 100%;
+padding: 9px;
+border: none;
+border-radius: 7px;
+background: #ffffff;
+color: #0284c7;
+font-size: 12px;
+font-weight: 700;
+cursor: pointer;
+}
+
+.admin-help-button:hover {
+background: #dbeafe;
+}
+
+.admin-logout-button {
+display: flex;
+align-items: center;
+gap: 13px;
+width: 100%;
+padding: 12px 14px;
+border: none;
+border-radius: 9px;
+background: transparent;
+color: #64748b;
+font-size: 14px;
+text-align: left;
+cursor: pointer;
+}
+
+.admin-logout-button:hover {
+background: #fff1f2;
+color: #e11d48;
+}
+
+.admin-sidebar-footer {
+padding: 17px 5px 0;
+color: #94a3b8;
+font-size: 11px;
+text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+.admin-sidebar {
+width: 220px;
+padding: 20px 12px;
+}
+
+.admin-sidebar-brand h2 {
+font-size: 16px;
+}
+
+.admin-menu-item {
+padding: 12px 10px;
+font-size: 13px;
+}
+}
+
+@media (max-height: 650px) {
+.admin-sidebar-bottom {
+padding-top: 15px;
+}
+
+.admin-help-card {
+padding: 12px;
+}
+}
+
+
+
+
+.admin-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-sidebar-brand .admin-notification-container {
+  margin-left: auto;
+  flex-shrink: 0;
+}

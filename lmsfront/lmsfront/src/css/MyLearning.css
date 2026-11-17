@@ -1,0 +1,509 @@
+* {
+  box-sizing: border-box;
+}
+
+.learning-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f8fc;
+  font-family: "Segoe UI", sans-serif;
+  color: #25364b;
+}
+
+/* SIDEBAR */
+
+.learning-sidebar {
+  width: 255px;
+  min-width: 255px;
+  background: #ffffff;
+  border-right: 1px solid #e5edf5;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.learning-brand {
+  font-size: 25px;
+  font-weight: 800;
+  color: #263b50;
+  text-decoration: none;
+  margin-bottom: 45px;
+  padding-left: 8px;
+}
+
+.learning-brand span {
+  color: #19a5b5;
+}
+
+.learning-menu-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  color: #9aa9b8;
+  padding-left: 12px;
+  margin-bottom: 15px;
+}
+
+.learning-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.learning-nav-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #63758a;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.learning-nav-link span {
+  font-size: 18px;
+}
+
+.learning-nav-link:hover {
+  background: #eef9fb;
+  color: #1599a9;
+}
+
+.learning-nav-link.active {
+  background: #e6f7f9;
+  color: #1599a9;
+}
+
+/* SIDEBAR BOTTOM */
+
+.learning-sidebar-bottom {
+  margin-top: auto;
+}
+
+.learning-help-box {
+  background: #f0f9fb;
+  border: 1px solid #dff0f3;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.learning-help-icon {
+  width: 27px;
+  height: 27px;
+  background: #d8f1f4;
+  color: #1695a5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.learning-help-box h4 {
+  margin: 0 0 6px;
+  color: #30465c;
+  font-size: 14px;
+}
+
+.learning-help-box p {
+  margin: 0;
+  font-size: 12px;
+  color: #8392a2;
+  line-height: 1.6;
+}
+
+.learning-logout {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #d65d68;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.learning-logout:hover {
+  background: #fff0f1;
+}
+
+.learning-logout span {
+  margin-right: 12px;
+}
+
+/* MAIN CONTENT */
+
+.learning-main {
+  flex: 1;
+  min-width: 0;
+  margin-left: 255px;
+  padding: 30px 40px;
+}
+
+.learning-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.learning-topbar-label {
+  color: #19a2b1;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.learning-topbar h2 {
+  font-size: 25px;
+  margin: 5px 0 0;
+  color: #263b50;
+}
+
+.learning-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.learning-avatar {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: #dff3f5;
+  color: #168f9e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.learning-user-info strong {
+  font-size: 14px;
+}
+
+.learning-user-info p {
+  margin: 3px 0 0;
+  color: #8a99a9;
+  font-size: 12px;
+}
+
+/* BANNER */
+
+.learning-banner {
+  min-height: 190px;
+  background: linear-gradient(115deg, #dff5f8, #eaf3ff);
+  border-radius: 16px;
+  padding: 35px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 38px;
+  overflow: hidden;
+}
+
+.learning-banner span {
+  color: #1599a9;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.learning-banner h1 {
+  font-size: 27px;
+  color: #263e53;
+  margin: 12px 0;
+}
+
+.learning-banner p {
+  font-size: 14px;
+  color: #687f92;
+  margin: 0;
+}
+
+.learning-banner-icon {
+  font-size: 75px;
+  margin-right: 25px;
+}
+
+/* COURSE SECTION */
+
+.learning-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.learning-section-heading span {
+  color: #159eae;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.learning-section-heading h2 {
+  font-size: 23px;
+  color: #263b50;
+  margin: 7px 0;
+}
+
+.learning-section-heading p {
+  color: #8795a5;
+  font-size: 13px;
+  margin: 0;
+}
+
+.learning-count {
+  background: #e1f4f6;
+  color: #168e9d;
+  padding: 9px 17px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.learning-course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 23px;
+}
+
+.learning-course-card {
+  background: #ffffff;
+  border: 1px solid #e8eef4;
+  border-radius: 13px;
+  overflow: hidden;
+  transition: 0.25s;
+}
+
+.learning-course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(43, 85, 110, 0.09);
+}
+
+.learning-course-cover {
+  height: 150px;
+  background: linear-gradient(135deg, #d9f1f4, #e7efff);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.learning-course-category {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #ffffff;
+  color: #168e9d;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.learning-course-icon {
+  font-size: 55px;
+}
+
+.learning-paid-badge {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  background: #e1f6e9;
+  color: #27935b;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.learning-course-body {
+  padding: 19px;
+}
+
+.learning-course-body h3 {
+  color: #2c4055;
+  font-size: 17px;
+  margin: 0 0 12px;
+}
+
+.learning-instructor {
+  color: #7a8b9b;
+  font-size: 13px;
+  margin-bottom: 13px;
+}
+
+.learning-course-meta {
+  color: #8493a3;
+  font-size: 12px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #edf1f5;
+}
+
+.learning-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  gap: 8px;
+}
+
+.learning-card-footer small {
+  display: block;
+  font-size: 11px;
+  color: #98a5b3;
+  margin-bottom: 5px;
+}
+
+.learning-card-footer strong {
+  font-size: 17px;
+  color: #168f9f;
+}
+
+.learning-card-footer button,
+.learning-empty button {
+  border: none;
+  background: #159baa;
+  color: white;
+  padding: 10px 13px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.learning-card-footer button:hover,
+.learning-empty button:hover {
+  background: #117d8b;
+}
+
+/* EMPTY / LOADING / ERROR */
+
+.learning-message,
+.learning-empty {
+  background: #ffffff;
+  border: 1px solid #e7edf3;
+  border-radius: 13px;
+  padding: 45px 20px;
+  text-align: center;
+  color: #77899a;
+}
+
+.learning-error {
+  color: #d65d68;
+}
+
+.learning-empty > div {
+  font-size: 45px;
+  margin-bottom: 12px;
+}
+
+.learning-empty h3 {
+  color: #344b60;
+  margin-bottom: 8px;
+}
+
+.learning-empty p {
+  color: #8a99a8;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+/* FOOTER */
+
+.learning-footer {
+  text-align: center;
+  color: #9aa7b4;
+  font-size: 12px;
+  padding: 35px 0 10px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .learning-sidebar {
+    width: 210px;
+    min-width: 210px;
+  }
+
+  .learning-main {
+    margin-left: 210px;
+    padding: 25px;
+  }
+}
+
+@media (max-width: 650px) {
+  .learning-sidebar {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: 18px;
+  }
+
+  .learning-layout {
+    flex-direction: column;
+  }
+
+  .learning-brand {
+    margin-bottom: 20px;
+  }
+
+  .learning-navigation {
+    gap: 4px;
+  }
+
+  .learning-sidebar-bottom {
+    margin-top: 15px;
+  }
+
+  .learning-help-box {
+    display: none;
+  }
+
+  .learning-main {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .learning-banner {
+    padding: 25px;
+  }
+
+  .learning-banner h1 {
+    font-size: 21px;
+  }
+
+  .learning-banner-icon {
+    font-size: 45px;
+    margin-right: 0;
+  }
+
+  .learning-topbar h2 {
+    font-size: 21px;
+  }
+
+  .learning-course-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,138 @@
+.instructor-profile-heading {
+  padding: 28px 30px 22px;
+}
+
+.instructor-profile-heading h1 {
+  color: #164b72;
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.instructor-profile-heading p {
+  color: #718096;
+  font-size: 14px;
+}
+
+/* Profile card */
+.instructor-profile-card {
+  background: #ffffff;
+  margin: 0 30px 30px;
+  border: 1px solid #e3edf7;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(30, 90, 130, 0.06);
+}
+
+/* Profile banner */
+.instructor-profile-banner {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 35px;
+  background: linear-gradient(120deg, #e8f6ff, #effafa);
+  border-bottom: 1px solid #e3edf7;
+}
+
+.instructor-profile-avatar {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #168bb5, #087e9c);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.instructor-profile-user h2 {
+  color: #164b72;
+  font-size: 23px;
+  margin: 0 0 7px;
+}
+
+.instructor-profile-user p {
+  color: #718096;
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+
+.instructor-profile-badge {
+  display: inline-block;
+  background: #dcfce7;
+  color: #15803d;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Profile details */
+.instructor-profile-details {
+  padding: 30px 35px;
+}
+
+.instructor-profile-details h3 {
+  color: #164b72;
+  font-size: 18px;
+  margin: 0 0 25px;
+}
+
+.instructor-profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.instructor-profile-item {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 17px;
+  background: #f7faff;
+  border: 1px solid #e8eff7;
+  border-radius: 9px;
+}
+
+.instructor-profile-item span {
+  color: #718096;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.instructor-profile-item strong {
+  color: #245779;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.profile-approved {
+  color: #15803d !important;
+  text-transform: capitalize;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .instructor-profile-heading {
+    padding: 20px;
+  }
+
+  .instructor-profile-card {
+    margin: 0 15px 25px;
+  }
+
+  .instructor-profile-banner {
+    padding: 25px 20px;
+  }
+
+  .instructor-profile-details {
+    padding: 25px 20px;
+  }
+
+  .instructor-profile-grid {
+    grid-template-columns: 1fr;
+  }
+}

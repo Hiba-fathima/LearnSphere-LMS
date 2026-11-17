@@ -1,0 +1,95 @@
+.admin-notification-container {
+  position: relative;
+  margin-left: auto;
+}
+
+.admin-notification-bell {
+  position: relative;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.admin-notification-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ef4444;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  min-width: 17px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-notification-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 320px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.admin-notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-notification-header h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.admin-notification-header button {
+  border: none;
+  background: none;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.admin-notification-item {
+  padding: 13px 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.admin-notification-item.unread {
+  background: #eff6ff;
+}
+
+.admin-notification-item h4 {
+  font-size: 14px;
+  margin: 0 0 5px;
+}
+
+.admin-notification-item p {
+  font-size: 13px;
+  color: #555;
+  margin: 0 0 7px;
+}
+
+.admin-notification-item small {
+  color: #888;
+  font-size: 11px;
+}
+
+.admin-no-notifications {
+  padding: 20px;
+  text-align: center;
+  color: #888;
+  font-size: 13px;
+}

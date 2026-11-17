@@ -1,0 +1,262 @@
+.student-quizzes-page {
+  min-height: 100vh;
+  padding: 35px;
+  background: #f4f8fc;
+}
+
+.student-quizzes-header {
+  background: linear-gradient(120deg, #087eae, #38a9d2);
+  color: white;
+  padding: 35px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-quizzes-header span {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.student-quizzes-header h1 {
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.student-quizzes-header p {
+  margin: 0;
+  color: #e8f7ff;
+}
+
+.quiz-header-icon {
+  font-size: 65px;
+}
+
+.quiz-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.quiz-summary-card {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
+}
+
+.quiz-summary-card > span {
+  font-size: 30px;
+}
+
+.quiz-summary-card p {
+  color: #758397;
+  margin: 0 0 5px;
+  font-size: 13px;
+}
+
+.quiz-summary-card h2 {
+  color: #087eae;
+  margin: 0;
+  font-size: 25px;
+}
+
+.student-quiz-list-section {
+  margin-top: 30px;
+}
+
+.student-quiz-list-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.student-quiz-list-heading h2 {
+  color: #19354b;
+  font-size: 22px;
+}
+
+.student-quiz-list-heading span {
+  color: #718096;
+  font-size: 13px;
+}
+
+.student-quiz-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.student-quiz-card {
+  background: white;
+  border-radius: 14px;
+  padding: 23px;
+  border: 1px solid #e5edf4;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+}
+
+.student-quiz-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-quiz-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  background: #e8f6fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+}
+
+.quiz-status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.quiz-pending {
+  background: #fff3d9;
+  color: #b7791f;
+}
+
+.quiz-attempted {
+  background: #dff8e9;
+  color: #21834b;
+}
+
+.student-quiz-card h3 {
+  color: #19354b;
+  margin: 18px 0 8px;
+  font-size: 19px;
+}
+
+.student-quiz-description {
+  color: #758397;
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 35px;
+}
+
+.student-quiz-details {
+  border-top: 1px solid #edf1f5;
+  border-bottom: 1px solid #edf1f5;
+  padding: 12px 0;
+  margin: 15px 0;
+}
+
+.student-quiz-details p {
+  color: #64748b;
+  font-size: 13px;
+  margin: 9px 0;
+}
+
+.student-quiz-details strong {
+  color: #34495e;
+}
+
+.quiz-attempt-result {
+  background: #f0f8ff;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.quiz-attempt-result p {
+  font-size: 13px;
+  margin: 5px 0;
+  color: #34536c;
+}
+
+.quiz-attempt-result small {
+  display: block;
+  margin-top: 8px;
+  color: #087eae;
+}
+
+.student-quiz-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #087eae;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.student-quiz-button:hover:not(:disabled) {
+  background: #05658d;
+}
+
+.student-quiz-button:disabled {
+  cursor: not-allowed;
+}
+
+.quiz-disabled-button {
+  background: #a0b4c2;
+}
+
+.quiz-message,
+.quiz-empty-state {
+  background: white;
+  padding: 45px 20px;
+  text-align: center;
+  border-radius: 12px;
+  color: #718096;
+}
+
+.quiz-error {
+  color: #d64545;
+}
+
+.quiz-empty-state > div {
+  font-size: 45px;
+}
+
+.quiz-empty-state h3 {
+  color: #19354b;
+}
+
+.quiz-empty-state p {
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .student-quizzes-page {
+    padding: 18px;
+  }
+
+  .quiz-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .student-quiz-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .student-quizzes-header {
+    padding: 25px;
+  }
+
+  .student-quizzes-header h1 {
+    font-size: 24px;
+  }
+
+  .quiz-header-icon {
+    font-size: 40px;
+  }
+}

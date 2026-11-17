@@ -1,0 +1,51 @@
+/* Instructor Dashboard */
+
+.student-layout {
+  min-height: 100vh;
+}
+
+/* Instructor Welcome Banner */
+
+.student-welcome-banner {
+  position: relative;
+}
+
+/* Instructor Sidebar Active State */
+
+.student-navigation .student-nav-link {
+  cursor: pointer;
+}
+
+/* Instructor Course Section */
+
+.student-courses-section {
+  margin-top: 30px;
+}
+
+/* Instructor Statistics */
+
+.student-stat-card {
+  transition: transform 0.2s ease;
+}
+
+.student-stat-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .student-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .student-course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .student-welcome-banner {
+    padding: 25px;
+  }
+
+}
