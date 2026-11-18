@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../css/Courses.css";
 
-const API_URL = "http://localhost:5000/api/courses";
+const API_URL = "https://learnsphere-lms-vkzs.onrender.com/api/courses";
 
 const INSTRUCTOR_API =
-  "http://localhost:5000/api/admin/instructors/approved";
+  "https://learnsphere-lms-vkzs.onrender.com/api/admin/instructors/approved";
 
 function Courses() {
   const [courses, setCourses] = useState([]);

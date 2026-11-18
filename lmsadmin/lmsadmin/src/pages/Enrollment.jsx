@@ -21,7 +21,7 @@ function Enrollments() {
       }
 
       const response = await fetch(
-        "http://localhost:5000/api/enrollments/admin/all",
+        "https://learnsphere-lms-vkzs.onrender.com/api/enrollments/admin/all",
         {
           headers: {
             Authorization: `Bearer ${token}`,
