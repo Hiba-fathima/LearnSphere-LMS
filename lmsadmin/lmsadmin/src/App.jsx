@@ -15,6 +15,7 @@ import Instructors from "./pages/Instructors";
 import AdminNotifications from "./pages/AdminNotification";
 
 import "./App.css";
+import Categories from "./pages/Categories";
 
 // Protect admin pages
 function ProtectedAdminRoute() {
@@ -177,6 +178,8 @@ function App() {
             <Route path="students" element={<Students />} />
 
             <Route path="instructors" element={<Instructors />} />
+            <Route path="/admin/categories" element={<Categories />} />
+            
 
           </Route>
 
@@ -187,6 +190,7 @@ function App() {
           path="*"
           element={<Navigate to="/admin/login" replace />}
         />
+        
 
       </Routes>
 

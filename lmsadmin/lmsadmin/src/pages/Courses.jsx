@@ -2,17 +2,23 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../css/Courses.css";
 
-const API_URL = "https://learnsphere-lms-vkzs.onrender.com/api/courses";
+const API_URL =
+  "https://learnsphere-lms-vkzs.onrender.com/api/courses";
 
 const INSTRUCTOR_API =
   "https://learnsphere-lms-vkzs.onrender.com/api/admin/instructors/approved";
 
+const CATEGORY_API =
+  "https://learnsphere-lms-vkzs.onrender.com/api/categories";
+
 function Courses() {
   const [courses, setCourses] = useState([]);
   const [instructors, setInstructors] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [instructorsLoading, setInstructorsLoading] = useState(true);
+  const [categoriesLoading, setCategoriesLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
   const emptyForm = {
@@ -31,15 +37,6 @@ function Courses() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("All");
-
-  const categories = [
-    "Development",
-    "Programming",
-    "Design",
-    "Business",
-    "Marketing",
-    "Data Science",
-  ];
 
   // =====================================
   // AUTHORIZATION HEADER
@@ -68,14 +65,12 @@ function Courses() {
         : response.data.courses || [];
 
       setCourses(courseList);
-
     } catch (error) {
       console.error("Error fetching courses:", error);
 
       alert(
         "Could not load courses. Please check that the backend is running."
       );
-
     } finally {
       setLoading(false);
     }
@@ -95,7 +90,6 @@ function Courses() {
       );
 
       setInstructors(response.data.instructors || []);
-
     } catch (error) {
       console.error("Error fetching instructors:", error);
 
@@ -105,9 +99,39 @@ function Courses() {
         error.response?.data?.message ||
           "Could not load approved instructors."
       );
-
     } finally {
       setInstructorsLoading(false);
+    }
+  };
+
+  // =====================================
+  // FETCH ADMIN-ADDED CATEGORIES
+  // =====================================
+
+  const fetchCategories = async () => {
+    try {
+      setCategoriesLoading(true);
+
+      const response = await axios.get(
+        CATEGORY_API,
+        getAuthConfig()
+      );
+
+      const categoryList = Array.isArray(response.data)
+        ? response.data
+        : response.data.categories || [];
+
+      setCategories(categoryList);
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+
+      setCategories([]);
+
+      console.error(
+        "Please check whether GET /api/categories exists in your backend."
+      );
+    } finally {
+      setCategoriesLoading(false);
     }
   };
 
@@ -118,6 +142,7 @@ function Courses() {
   useEffect(() => {
     fetchCourses();
     fetchInstructors();
+    fetchCategories();
   }, []);
 
   // =====================================
@@ -184,10 +209,7 @@ function Courses() {
     const courseData = {
       title: formData.title.trim(),
       category: formData.category,
-
-      // Send MongoDB instructor ID
       instructorId: selectedInstructor._id,
-
       price: Number(formData.price),
       duration: formData.duration.trim(),
       status: formData.status,
@@ -204,7 +226,6 @@ function Courses() {
         );
 
         alert("Course updated successfully!");
-
       } else {
         await axios.post(
           API_URL,
@@ -220,7 +241,6 @@ function Courses() {
       setFormData(emptyForm);
       setEditId(null);
       setShowForm(false);
-
     } catch (error) {
       console.error("Error saving course:", error);
 
@@ -229,7 +249,6 @@ function Courses() {
           error.response?.data?.message ||
           "Could not save course. Please try again."
       );
-
     } finally {
       setSaving(false);
     }
@@ -240,9 +259,7 @@ function Courses() {
   // =====================================
 
   const handleEdit = (course) => {
-
-    // For old courses without instructorId,
-    // try matching the instructor by name.
+    // Match instructor by ID or name
     const matchedInstructor = instructors.find(
       (instructor) =>
         instructor._id === course.instructorId ||
@@ -255,9 +272,7 @@ function Courses() {
     setFormData({
       title: course.title || "",
       category: course.category || "",
-
       instructorId: matchedInstructor?._id || "",
-
       price: String(course.price ?? ""),
       duration: course.duration || "",
       status: course.status || "Published",
@@ -287,7 +302,6 @@ function Courses() {
       await fetchCourses();
 
       alert("Course deleted successfully!");
-
     } catch (error) {
       console.error("Error deleting course:", error);
 
@@ -456,7 +470,7 @@ function Courses() {
                 />
               </div>
 
-              {/* CATEGORY */}
+              {/* DYNAMIC CATEGORY DROPDOWN */}
 
               <div className="course-form-group">
                 <label>Category *</label>
@@ -466,17 +480,31 @@ function Courses() {
                   value={formData.category}
                   onChange={handleChange}
                   required
+                  disabled={categoriesLoading}
                 >
                   <option value="">
-                    Select category
+                    {categoriesLoading
+                      ? "Loading categories..."
+                      : "Select category"}
                   </option>
 
                   {categories.map((category) => (
-                    <option key={category} value={category}>
-                      {category}
+                    <option
+                      key={category._id}
+                      value={category.name}
+                    >
+                      {category.name}
                     </option>
                   ))}
+
                 </select>
+
+                {!categoriesLoading &&
+                  categories.length === 0 && (
+                    <small>
+                      No categories available. Please add categories first.
+                    </small>
+                  )}
               </div>
 
               {/* INSTRUCTOR DROPDOWN */}
@@ -586,7 +614,9 @@ function Courses() {
                 disabled={
                   saving ||
                   instructorsLoading ||
-                  instructors.length === 0
+                  categoriesLoading ||
+                  instructors.length === 0 ||
+                  categories.length === 0
                 }
               >
                 {saving
@@ -635,6 +665,8 @@ function Courses() {
             />
           </div>
 
+          {/* DYNAMIC CATEGORY FILTER */}
+
           <select
             className="course-filter"
             value={categoryFilter}
@@ -645,8 +677,11 @@ function Courses() {
             </option>
 
             {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
+              <option
+                key={category._id}
+                value={category.name}
+              >
+                {category.name}
               </option>
             ))}
           </select>

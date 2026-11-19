@@ -63,6 +63,11 @@ app.use("/api/quizzes", quizRoutes);
 const notificationRoutes = require("./routes/NotificationRoutes");
 app.use("/api/notifications", notificationRoutes);
 
+
+const categoryRoutes = require("./routes/CategoryRoutes");
+app.use("/api/categories", categoryRoutes);
+app.use("/uploads", express.static("uploads"));
+
 app.get("/api/test", (req, res) => {
   res.json({ message: "Main server is working!" });
 });
