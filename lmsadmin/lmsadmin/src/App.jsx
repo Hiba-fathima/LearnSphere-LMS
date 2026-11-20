@@ -16,6 +16,7 @@ import AdminNotifications from "./pages/AdminNotification";
 
 import "./App.css";
 import Categories from "./pages/Categories";
+import Reports from "./pages/Reports";
 
 // Protect admin pages
 function ProtectedAdminRoute() {
@@ -179,6 +180,7 @@ function App() {
 
             <Route path="instructors" element={<Instructors />} />
             <Route path="/admin/categories" element={<Categories />} />
+            <Route path="/admin/reports" element={<Reports />} />
             
 
           </Route>

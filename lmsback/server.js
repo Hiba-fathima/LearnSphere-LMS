@@ -78,7 +78,7 @@ mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB connected"))
 .catch((err) => console.log("MongoDB error:", err.message));
 
-// User Model
+// User Modelw
 const User = require("./models/UserModel");
 
 // Home Route
