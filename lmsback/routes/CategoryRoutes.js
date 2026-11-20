@@ -117,6 +117,86 @@ router.post("/", upload.single("image"), async (req, res) => {
   }
 });
 
+
+
+// =====================================
+// UPDATE CATEGORY
+// =====================================
+
+router.put("/:id", upload.single("image"), async (req, res) => {
+  try {
+    const { name, description, removeImage } = req.body;
+
+    const category = await Category.findById(req.params.id);
+
+    if (!category) {
+      return res.status(404).json({
+        message: "Category not found",
+      });
+    }
+
+    if (!name || !name.trim()) {
+      return res.status(400).json({
+        message: "Category name is required",
+      });
+    }
+
+    // Check duplicate category name
+    const existingCategory = await Category.findOne({
+      name: name.trim(),
+      _id: { $ne: req.params.id },
+    });
+
+    if (existingCategory) {
+      return res.status(409).json({
+        message: "Category name already exists",
+      });
+    }
+
+    const oldImage = category.image;
+
+    category.name = name.trim();
+    category.description = description || "";
+
+    if (req.file) {
+      category.image = `/uploads/categories/${req.file.filename}`;
+    } else if (removeImage === "true") {
+      category.image = "";
+    }
+
+    await category.save();
+
+    // Delete old image if it was replaced or removed
+    if (
+      oldImage &&
+      oldImage !== category.image &&
+      oldImage.startsWith("/uploads/categories/")
+    ) {
+      const oldImagePath = path.join(
+        __dirname,
+        "..",
+        oldImage
+      );
+
+      if (fs.existsSync(oldImagePath)) {
+        fs.unlinkSync(oldImagePath);
+      }
+    }
+
+    res.status(200).json({
+      message: "Category updated successfully",
+      category,
+    });
+
+  } catch (error) {
+    console.error("Update category error:", error);
+
+    res.status(500).json({
+      message: "Failed to update category",
+    });
+  }
+});
+
 // =====================================
 // DELETE CATEGORY
 // =====================================

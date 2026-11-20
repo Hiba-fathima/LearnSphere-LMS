@@ -18,6 +18,9 @@ function Categories() {
   const [loading, setLoading] = useState(false);
   const [fetching, setFetching] = useState(true);
 
+  const [editingId, setEditingId] = useState(null);
+  const [removeImage, setRemoveImage] = useState(false);
+
   const token = localStorage.getItem("token");
 
   const getAuthConfig = () => ({
@@ -37,12 +40,15 @@ function Categories() {
       );
 
       setCategories(response.data.categories || []);
+
     } catch (error) {
       console.error("Error fetching categories:", error);
+
       alert(
         error.response?.data?.message ||
         "Unable to load categories"
       );
+
     } finally {
       setFetching(false);
     }
@@ -84,9 +90,47 @@ function Categories() {
     }));
 
     setPreview(URL.createObjectURL(file));
+    setRemoveImage(false);
   };
 
-  // Add category
+  // Reset form
+  const resetForm = () => {
+    setFormData({
+      name: "",
+      description: "",
+      image: null,
+    });
+
+    setPreview(null);
+    setEditingId(null);
+    setRemoveImage(false);
+  };
+
+  // Edit category
+  const handleEdit = (category) => {
+    setEditingId(category._id);
+
+    setFormData({
+      name: category.name,
+      description: category.description || "",
+      image: null,
+    });
+
+    setPreview(
+      category.image
+        ? `${SERVER_URL}${category.image}`
+        : null
+    );
+
+    setRemoveImage(false);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  // Add or Update category
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -102,35 +146,42 @@ function Categories() {
 
       data.append("name", formData.name.trim());
       data.append("description", formData.description);
+      data.append("removeImage", String(removeImage));
 
       if (formData.image) {
         data.append("image", formData.image);
       }
 
-      await axios.post(API_URL, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      if (editingId) {
+        await axios.put(
+          `${API_URL}/${editingId}`,
+          data,
+          getAuthConfig()
+        );
 
-      alert("Category added successfully!");
+        alert("Category updated successfully!");
 
-      setFormData({
-        name: "",
-        description: "",
-        image: null,
-      });
+      } else {
+        await axios.post(
+          API_URL,
+          data,
+          getAuthConfig()
+        );
 
-      setPreview(null);
+        alert("Category added successfully!");
+      }
 
+      resetForm();
       fetchCategories();
+
     } catch (error) {
-      console.error("Error adding category:", error);
+      console.error("Category save error:", error);
 
       alert(
         error.response?.data?.message ||
-        "Failed to add category"
+        "Failed to save category"
       );
+
     } finally {
       setLoading(false);
     }
@@ -153,6 +204,7 @@ function Categories() {
       alert("Category deleted successfully!");
 
       fetchCategories();
+
     } catch (error) {
       console.error("Error deleting category:", error);
 
@@ -177,10 +229,12 @@ function Categories() {
         </div>
       </div>
 
-      {/* Add Category Form */}
+      {/* Add / Edit Category Form */}
       <div className="category-form-card">
 
-        <h3>Add New Category</h3>
+        <h3>
+          {editingId ? "Edit Category" : "Add New Category"}
+        </h3>
 
         <form onSubmit={handleSubmit}>
 
@@ -225,30 +279,56 @@ function Categories() {
 
           {preview && (
             <div className="category-preview">
-              <img src={preview} alt="Category preview" />
+
+              <img
+                src={preview}
+                alt="Category preview"
+              />
 
               <button
                 type="button"
                 onClick={() => {
                   setPreview(null);
+
                   setFormData((prev) => ({
                     ...prev,
                     image: null,
                   }));
+
+                  setRemoveImage(true);
                 }}
               >
                 Remove Image
               </button>
+
             </div>
           )}
 
-          <button
-            type="submit"
-            className="category-add-btn"
-            disabled={loading}
-          >
-            {loading ? "Adding..." : "+ Add Category"}
-          </button>
+          <div className="category-form-actions">
+
+            <button
+              type="submit"
+              className="category-add-btn"
+              disabled={loading}
+            >
+              {loading
+                ? "Saving..."
+                : editingId
+                ? "Save Changes"
+                : "+ Add Category"}
+            </button>
+
+            {editingId && (
+              <button
+                type="button"
+                className="category-cancel-btn"
+                onClick={resetForm}
+              >
+                Cancel
+              </button>
+            )}
+
+          </div>
 
         </form>
       </div>
@@ -259,7 +339,9 @@ function Categories() {
         <h3>All Categories</h3>
 
         {fetching ? (
-          <p className="category-message">Loading categories...</p>
+          <p className="category-message">
+            Loading categories...
+          </p>
         ) : categories.length === 0 ? (
           <p className="category-message">
             No categories found. Add your first category.
@@ -270,7 +352,10 @@ function Categories() {
 
             {categories.map((category) => (
 
-              <div className="category-item" key={category._id}>
+              <div
+                className="category-item"
+                key={category._id}
+              >
 
                 {category.image ? (
                   <img
@@ -285,18 +370,31 @@ function Categories() {
                 )}
 
                 <div className="category-details">
+
                   <h4>{category.name}</h4>
 
                   <p>
                     {category.description || "No description"}
                   </p>
 
-                  <button
-                    className="category-delete-btn"
-                    onClick={() => handleDelete(category._id)}
-                  >
-                    Delete
-                  </button>
+                  <div className="category-actions">
+
+                    <button
+                      className="category-edit-btn"
+                      onClick={() => handleEdit(category)}
+                    >
+                      Edit
+                    </button>
+
+                    <button
+                      className="category-delete-btn"
+                      onClick={() => handleDelete(category._id)}
+                    >
+                      Delete
+                    </button>
+
+                  </div>
+
                 </div>
 
               </div>
