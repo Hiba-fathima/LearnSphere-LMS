@@ -21,7 +21,6 @@ function CourseDetails() {
   const [paymentMessage, setPaymentMessage] = useState("");
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
-
   // =====================================
   // FETCH COURSE
   // =====================================
@@ -199,7 +198,27 @@ function CourseDetails() {
           color: "#38bdf8",
         },
 
+        // =====================================
+        // HIDE UPI PAYMENT METHOD
+        // =====================================
+
+        config: {
+          display: {
+            hide: [
+              {
+                method: "upi",
+              },
+            ],
+            preferences: {
+              show_default_blocks: true,
+            },
+          },
+        },
+
+        // =====================================
         // PAYMENT SUCCESS
+        // =====================================
+
         handler: async function (response) {
           setPaymentLoading(true);
           setPaymentMessage("Verifying your payment...");
@@ -251,7 +270,10 @@ function CourseDetails() {
           }
         },
 
+        // =====================================
         // CHECKOUT CLOSED
+        // =====================================
+
         modal: {
           ondismiss: () => {
             setPaymentMessage(
@@ -263,7 +285,10 @@ function CourseDetails() {
 
       const razorpay = new window.Razorpay(options);
 
+      // =====================================
       // PAYMENT FAILED
+      // =====================================
+
       razorpay.on("payment.failed", (response) => {
         console.error("Payment failed:", response.error);
 
